@@ -1,0 +1,25 @@
+apiVersion:       apps/v1
+kind:             Deployment
+metadata:
+  name:           mynginxapp
+spec:
+  replicas:       2
+  selector: 
+    matchLabels:
+      app:        mynginx
+      env:        development
+  template:
+    metadata:
+      name:       mynginxpo
+      labels:
+        app:      mynginx
+        env:      development
+    spec:
+      containers:
+      - name:     mynginxct
+        image:    nginx:1.18.0
+        ports:
+        - containerPort: 80
+        env:
+        - name:   SIMPLE_ENV_FOR_POD
+          value:  "0.9"

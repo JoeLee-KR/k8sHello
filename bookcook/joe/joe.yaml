@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: joe
+spec:
+  containers:
+  - name: joe-app
+    image: nginx
+  - name: joe-data
+    image: redis

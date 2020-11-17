@@ -1,0 +1,23 @@
+FROM ubuntu:18.04
+MAINTAINER doogie
+LABEL "purpose"="mypractice"
+# /bin/sed -i -e s?archive.ubuntu.com?ftp.daum.net?g /etc/apt/sources.list
+# /bin/sed -i -e s?security.ubuntu.com?ftp.daum.net?g /etc/apt/sources.list
+RUN ["/bin/sed", "-i -e",  "s?archive.ubuntu.com?ftp.daum.net?g", "/etc/apt/sources.list"]
+RUN ["/bin/sed", "-i -e",  "s?security.ubuntu.com?ftp.daum.net?g", "/etc/apt/sources.list"]
+RUN apt-get update
+RUN apt-get install net-tools iputils-ping iproute2 vim curl -y
+RUN apt-get install nginx -y
+RUN apt-get install php-fpm -y
+WORKDIR /etc/nginx/sites-available
+COPY default default.ORG
+ADD default /etc/nginx/sites-available/default
+ADD docker-entrypoint.sh /usr/local/bin
+WORKDIR /var/www/html
+ADD mytest.html /var/www/html
+ADD myinfo.php /var/www/html
+WORKDIR /usr/local/bin
+ADD docker-entrypoint.sh /usr/local/bin
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/bin/sh", "docker-entrypoint.sh"]

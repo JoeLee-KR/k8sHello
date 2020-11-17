@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynginx-po
+  labels:
+    app: mynginx
+    dev: stage
+spec:
+  containers:
+  - name: mynginx-ct
+#    image: nginx:latest
+    image: xjoelee/myu18:nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP

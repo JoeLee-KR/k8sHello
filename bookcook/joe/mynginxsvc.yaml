@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mynginxsvc
+  labels:
+    app:      mynginx
+    env:      development
+spec:
+  ports:
+  - port: 80
+  selector:
+    app:      mynginx
+    env:      development
+  type: ClusterIP

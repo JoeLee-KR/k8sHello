@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysidecar-po
+  labels:
+    app: mynginx
+    dev: stage
+spec:
+  containers:
+  - name: mynginx-ct
+    image: xjoelee/myu18:nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  - name: myubuntu-ct
+    image: xjoelee/myu18:ubuntu
+    command: ["tail"]
+    args: ["-f", "/dev/null"]
