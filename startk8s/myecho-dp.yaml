@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myecho-dp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myecho
+      dev: stage
+  template:
+    metadata:
+      name: myecho-po
+      labels:
+        app: myecho
+        dev: stage
+    spec:
+      containers:
+      - name: myecho-ct
+        image: xjoelee/myu18:np-a
+        ports:
+        - containerPort: 80
+          protocol: TCP

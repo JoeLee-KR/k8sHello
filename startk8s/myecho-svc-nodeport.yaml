@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myecho-svc-nodeport
+spec:
+  ports:
+  - name: myecho-svcport
+    port: 8887
+    targetPort: 80
+  selector:
+    app: myecho
+    dev: stage
+  type: NodePort

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplica-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myreplica-lb
+      dev: stage
+  template:
+    metadata:
+      name: myreplica-po
+      labels:
+        app: myreplica-lb
+        dev: stage
+    spec:
+      containers:
+      - name: myreplica-ct
+        image: xjoelee/myu18:np-a
+        ports:
+        - containerPort: 80
+          protocol: TCP

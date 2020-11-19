@@ -5,12 +5,15 @@
 
 <div class="form-layout">
 	<blockquote>
-	********************************</br>
+  <p>
+	**********************************************************</br>
 	<?php
 		$container_id=gethostname();
-		echo "<p>Hello-C , xjoelee/myu18:np-c  $container_id</p>";
+    $testdate=date('Y-m-d H:i:s');
+		echo "Hello-C, xjoelee/myu18:np-c: $container_id at $testdate.";
 	?>
 	</br>
-	********************************</br>
+	**********************************************************</br>
+  </p>
 	</blockquote>
 </div>
