@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mymetallb-dp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mymetallb
+      dev: stage
+  template:
+    metadata:
+      name: mymetallb-po
+      labels:
+        app: mymetallb
+        dev: stage
+    spec:
+      containers:
+      - name: mymetallb-ct
+        image: xjoelee/myu18:np-c
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mymetallb-svc
+spec:
+  ports:
+  - name: mymetallb-port
+    port: 88
+    targetPort: 80
+  selector:
+    app: mymetallb
+    dev: stage
+  type: LoadBalancer

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myecho-bastion-po
+  labels:
+    app: myecho
+    dev: stage
+spec:
+  containers:
+  - name: myecho-bastion-ct
+    image: xjoelee/myu18:ubuntu
