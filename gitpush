@@ -1,6 +1,6 @@
 #!/bin/bash
 
-msgmark=`date +%y%m%d-%H%M`+'atDogUbuntu'
+msgmark=`date +%y%m%d-%H%M`+'atDoogieJoe'
 
 git add .
 git commit -m $msgmark
