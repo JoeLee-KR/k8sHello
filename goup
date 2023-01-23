@@ -1,8 +1,0 @@
-#!/bin/bash
-
-msgmark=`date +%y%m%d-%H%M`+'atDoogieJoe'
-
-git add .
-git commit -m $msgmark
-git push http://github.com/JoeLee-KR/k8sHello.git
-echo 'Push all to '$msgmark
