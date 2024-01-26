@@ -5,5 +5,6 @@
 - if u a on ubuntu & have no credential, use ID/PSWD fir general github repository to access
 - u MUST be sure to push, when test-work is over.
 
+- ...
 -
 EOD
