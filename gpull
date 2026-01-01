@@ -1,5 +1,0 @@
-#!/bin/bash
-git pull git@gitjoe:JoeLee-KR/k8sHello.git
-#git pull -f git@gitjoe:JoeLee-KR/k8sHello.git
-#git pull -f git@gitjoe:JoeLee-KR/k8sHello.git master
-#git pull http://github.com/JoeLee-KR/k8sHello.git
