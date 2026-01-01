@@ -1,9 +1,0 @@
-#!/bin/bash
-_MSG=`date "+%y%m%d-%H%M"`
-_HOST=`hostname -s`
-git add . && git commit -m $_HOST:$_MSG
-git push git@gitjoe:Joelee-KR/k8sHello.git
-
-# git push       git@gitjoe:JoeLee-KR/k8sHello.git master
-# git push -u -f git@gitjoe:JoeLee-KR/k8sHello.git master
-#git push http://github.com/JoeLee-KR/k8sHello.git
